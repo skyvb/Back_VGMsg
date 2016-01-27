@@ -46,7 +46,7 @@ void BackUpVG(){
     time(&tt);
 	//扫描文件列表找到VG开头的文件
     while((ptr=readdir(dir))!=NULL){
-        if(strstr(ptr->d_name,"VG")){
+        if(strstr(ptr->d_name,"VG") || strstr(ptr->d_name,"EXT")){
             char cmd[256];
             sprintf(cmd,"cp %s/%s %s/%s_%d",Source_Path,ptr->d_name,Back_Path,ptr->d_name,tt);
             system(cmd);
